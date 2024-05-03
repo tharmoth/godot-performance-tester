@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://8syow5841o55"]
+
+[ext_resource type="Script" path="res://node_spawner_gd.gd" id="1_bk0wl"]
+[ext_resource type="Script" path="res://NodeSpawnerCS.cs" id="2_h4gfo"]
+[ext_resource type="Script" path="res://fps_counter.gd" id="2_teorr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GDSpawner" type="Node2D" parent="."]
+script = ExtResource("1_bk0wl")
+
+[node name="CSSpawner" type="Node2D" parent="."]
+script = ExtResource("2_h4gfo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "C#"
+popup/item_0/id = 0
+popup/item_1/text = "GDScript"
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "FPS: "
+script = ExtResource("2_teorr")
